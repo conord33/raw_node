@@ -1,0 +1,30 @@
+---
+- hosts: all
+  sudo: true
+
+  vars:
+    app_name: api
+    webapps_dir: /var/www
+    process_number: 3
+
+  tasks:
+
+    - include: node/tasks.yml
+
+    - include: nginx/tasks.yml
+
+    - include: supervisor/tasks.yml
+
+  handlers:
+
+    - include: nginx/handlers.yml
+
+    - include: supervisor/handlers.yml
+
+
+
+
+
+
+
+
